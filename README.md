@@ -15,7 +15,7 @@ The main goals of this project include:
 
 The system consists of multiple components, including:
 
-- **Load Balancer**: Distributes HTTP traffic using round-robin across two instances of the API service. It listens on port 9999.
+- **Load Balancer**: Distributes HTTP traffic across the instances of the API service. It listens on port 9999.
 - **API Services**: Multiple instances of the API service run behind the load balancer to handle client requests.
 - **Database**: A relational database for storing client data, transactions, and balance information.
 
