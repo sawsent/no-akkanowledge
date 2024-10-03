@@ -15,3 +15,98 @@ buildNumber.properties
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# macOS resource forks
+._*
+
+# macOS specific metadata files
+.Spotlight-V100
+.Trashes
+.VolumeIcon.icns
+.fseventsd
+.com.apple.timemachine.donotpresent
+.metadata_never_index
+
+# IntelliJ IDEA specific files
+.idea/
+*.iws
+*.iml
+*.ipr
+.idea/*
+
+# IntelliJ IDEA project-specific settings
+# Uncomment if you want to keep specific settings
+# .idea/modules.xml
+# .idea/workspace.xml
+# .idea/tasks.xml
+# .idea/dictionaries
+# .idea/vcs.xml
+# atlassian-ide-plugin.xml
+
+# User-specific configuration files
+.idea/*-workspace.xml
+.idea/**/workspace.xml
+
+# IntelliJ IDEA's generated project files
+*.class
+*.log
+*.out
+*.jar
+*.war
+*.ear
+
+# Target directory for compiled output
+/target/
+
+# Logs and temp files
+/log/
+*.log
+*.tmp
+
+# Scala specific files
+*.class
+*.cache
+*.project
+*.history
+
+# SBT specific
+lib_managed/
+target/
+project/target/
+project/project/
+
+# Java specific
+*.class
+*.jar
+*.war
+*.ear
+
+# IDE specific files (general)
+*.swp
+*~
+
+# Temporary build artifacts
+dist/
+build/
+
+# Maven specific
+.mvn/
+target/
+
+# Gradle specific
+.gradle/
+build/
+
+# Vim swap files
+*.swp
+
+# Eclipse specific files
+.project
+.classpath
+.csettings
+.settings/
