@@ -1,6 +1,6 @@
-# No-Akkanowledge API Contracts
+# Akkamelo API Contracts
 
-This file outlines the endpoints, request formats, and response formats used in the **No-Akkanowledge** API.
+This file outlines the endpoints, request formats, and response formats used in the **akkamelo** API.
 
 ---
 

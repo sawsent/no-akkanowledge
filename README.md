@@ -43,7 +43,7 @@ flowchart TD
 
 ## Constraints
 
-As per the "[Rinha de Backend](https://github.com/zanfranceschi/rinha-de-backend-2024-q1)" challenge, **no-akkanowledge** must operate within the following resource limitations:
+As per the "[Rinha de Backend](https://github.com/zanfranceschi/rinha-de-backend-2024-q1)" challenge, **akkamelo** must operate within the following resource limitations:
 
 - **Memory**: The entire program is constrained to a maximum of **550 MB** of RAM. Memory usage must be tightly controlled to prevent crashes and ensure efficient handling of requests.
 - **CPU**: The total CPU usage across all API instances must not exceed **1.5 vCPUs**. This necessitates careful CPU management.
