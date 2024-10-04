@@ -1,6 +1,6 @@
-# No-Akkanowledge: A Resilient, Fast, Distributed API in Scala with Akka
+# Akkamelo: A Resilient, Fast, Distributed API in Scala with Akka
 
-**No-Akkanowledge** is a learning project aimed at building a resilient and distributed API using Scala and Akka. The project is based on the concepts of concurrency, fault-tolerance, and scalability. Initially inspired by the backend challenge "Rinha de Backend", this API focuses on managing credits and debits in a multi-client environment while ensuring data consistency.
+**Akkamelo** is a learning project aimed at building a resilient and distributed API using Scala and Akka. The project is based on the concepts of concurrency, fault-tolerance, and scalability. Initially inspired by the backend challenge "Rinha de Backend", this API focuses on managing credits and debits in a multi-client environment while ensuring data consistency.
 
 ## Project Overview
 
