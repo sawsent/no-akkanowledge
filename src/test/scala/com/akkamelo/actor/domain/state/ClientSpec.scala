@@ -17,7 +17,7 @@ class ClientSpec extends AnyFlatSpec {
   }
 
   it should "Throw an exception if add a Debit that will result a balance lower than Client Limit" in {
-    val transaction =  Debit(100001, "description")
+    val transaction =  Debit(100001, "desc")
     val client = Client.initial.copy(limit=100000)
     assertThrows[InvalidTransactionException] {
       client add transaction
@@ -25,12 +25,12 @@ class ClientSpec extends AnyFlatSpec {
   }
 
   it should "use the transaction list to return the statement (with only the last 10 transactions) and the balance" in {
-    val creditTransaction = Credit(100,"description")
-    val debitTransaction = Debit(500,"description")
+    val creditTransaction = Credit(100,"desc")
+    val debitTransaction = Debit(500,"desc")
     val clientState = Client.initial.copy(id = 1, limit =100000)
     val resultClientState = (clientState add creditTransaction)
       .add (debitTransaction)
-      .add(creditTransaction)
+      .add (creditTransaction)
       .add (creditTransaction)
       .add (creditTransaction)
       .add (creditTransaction)

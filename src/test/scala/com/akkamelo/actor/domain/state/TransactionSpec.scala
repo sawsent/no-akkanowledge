@@ -6,7 +6,7 @@ import org.scalatest.flatspec.AnyFlatSpec
 
 class TransactionSpec extends AnyFlatSpec {
 
-  "A Transaction" should "be a Debit or a Credit in" {
+  "A Transaction" should "be a Debit or a Credit" in {
     val debit = Debit(100,"desc")
     val debitIsATransaction = debit match {
       case t: Transaction => true
@@ -20,10 +20,10 @@ class TransactionSpec extends AnyFlatSpec {
       case _ => false
     }
     assert(creditIsATransaction)
-    0
+
   }
 
-  it should "must have a positive value" {
+  it should "must have a positive value" in {
     assertThrows[InvalidTransactionException] {
       Debit(-100, "desc")
     }
@@ -32,10 +32,10 @@ class TransactionSpec extends AnyFlatSpec {
     }
     val credit = Credit(200, "desc")
     assert(credit.value == 200)
-    0
+
   }
 
-  it should "must have a description with size between 1 and 10" {
+  it should "must have a description with size between 1 and 10" in {
     assertThrows[InvalidTransactionException] {
       Debit(100, "")
     }
@@ -46,7 +46,7 @@ class TransactionSpec extends AnyFlatSpec {
 
     val credit = Credit(200, "1234567890")
     assert(credit.description == "1234567890")
-    0
+
   }
 
 }

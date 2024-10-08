@@ -13,6 +13,7 @@ case class Client(id: Int, transactions: List[Transaction], limit: Int) {
   def add(transaction: Transaction): Client = {
     transaction match {
       case d: Debit => verifyDebit(d)
+      case c: Credit =>
     }
     this.copy(id, transaction +: transactions, limit)
   }
@@ -25,8 +26,8 @@ case class Client(id: Int, transactions: List[Transaction], limit: Int) {
 
   private def money: Int = {
     transactions.foldRight(0)((t: Transaction, acc: Int) => t match {
-      case Credit(value, _) => acc + value
-      case Debit(value, _) => acc - value
+      case Credit(value, _, _) => acc + value
+      case Debit(value, _, _) => acc - value
     })
   }
 

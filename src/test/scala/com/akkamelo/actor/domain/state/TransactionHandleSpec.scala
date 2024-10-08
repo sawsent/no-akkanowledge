@@ -6,7 +6,6 @@ import org.scalatest.flatspec.AnyFlatSpecLike
 import org.scalatest.matchers.should
 import org.scalatest.prop.TableDrivenPropertyChecks
 
-import scala.language.postfixOps
 
 class TransactionHandleSpec  extends AnyFlatSpecLike with TableDrivenPropertyChecks with should.Matchers {
 
