@@ -31,7 +31,4 @@ case class Client(id: Int, transactions: List[Transaction], limit: Int) {
     })
   }
 
-  private def verifyDebit(debit: Debit): Unit = {
-  }
-
 }
