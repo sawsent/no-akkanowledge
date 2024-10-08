@@ -95,3 +95,16 @@ Where:
 
 ### **Rules**
 - If the client ID does not exist, return `HTTP 404 Not Found`.
+
+## Initial Client Register
+For test only a few Clients must exist. So, They must exist at our App first time execution!
+
+| id | limit    | initialBalance
+| - |----------| -
+| 1 | 100000   | 0
+| 2 | 80000    | 0
+| 3 | 1000000  | 0
+| 4 | 10000000 | 0
+| 5 | 500000   | 0
+
+Obs.: Please don't creat a client with id 6 this will broke the tests!

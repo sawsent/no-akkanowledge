@@ -33,6 +33,10 @@ flowchart TD
     end
 ```
 
+## Functional Requirements 
+
+[Here](./docs/STATUS-TESTES.md).
+
 ## Technologies Used
 
 - **Scala**: The main programming language used to build the API.

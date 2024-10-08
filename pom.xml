@@ -5,6 +5,14 @@
     <artifactId>akkamelo-api</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>Akkamelo - Distributed API</name>
+    <dependencies>
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_2.13</artifactId>
+            <version>3.2.18</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
