@@ -1,8 +1,12 @@
 package com.akkamelo.actor.domain.state
 
+import com.akkamelo.actor.domain.dto.CommandTransactionDTO
+import com.akkamelo.actor.domain.exception.ClientNotFoundException
 import org.scalatest.flatspec.AnyFlatSpecLike
 import org.scalatest.matchers.should
 import org.scalatest.prop.TableDrivenPropertyChecks
+
+import scala.language.postfixOps
 
 class TransactionHandleSpec  extends AnyFlatSpecLike with TableDrivenPropertyChecks with should.Matchers {
 
@@ -14,13 +18,13 @@ class TransactionHandleSpec  extends AnyFlatSpecLike with TableDrivenPropertyChe
         (
           "Initial Client 1",
           Client.initial,
-          CommandTransactionDTO.empty.copy(id = 1, valor = 100, tipo = "c", descricao = "descricao"),
-          Client.initial.copy(id = 1, transactions = transactions ++ Credit(100,"descricao"))
+          CommandTransactionDTO.empty.copy(clientId = 1, value = 100, transactionType = TransactionType.CREDIT, description = "descricao"),
+          Client.initial.copy(id = 1, transactions = Client.initial.transactions :+ Credit(100,"descricao"))
         )
       // Add more cases
       )
     forAll(examples) { (description, client, transactionCommand, expectation) =>
-      victim(client,transactionCommand) should be expectation
+      victim(client,transactionCommand) should be(expectation)
     }
 
   }
@@ -29,17 +33,17 @@ class TransactionHandleSpec  extends AnyFlatSpecLike with TableDrivenPropertyChe
   "TransactionHandle" should "throws a exception if ID isn't in the app scope (1-5)" in {
 
     val victim = TransactionHandle.handle()
-    val examples = Table(("description", "client", "transactionCommand"),
+    val examples = Table(("description", "client", "transactionCommand", "expectation"),
       (
         "Initial Client 1",
         Client.initial,
-        CommandTransactionDTO.empty.copy(id = 11, valor = 100, tipo = "c", descricao = "descricao"),
+        CommandTransactionDTO.empty.copy(clientId = 11, value = 100, transactionType = TransactionType.CREDIT, description = "descricao"),
         AnyRef
       )
       // Add more cases
     )
-    forAll(examples) { (description, client, transactionCommand) =>
-       assertThrows[ClientNotFound](victim(client,transactionCommand))
+    forAll(examples) { (description, client, transactionCommand, expectation) =>
+       assertThrows[ClientNotFoundException](victim(client,transactionCommand))
     }
 
   }

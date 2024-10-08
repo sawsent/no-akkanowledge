@@ -1,5 +1,6 @@
 package com.akkamelo.actor.domain.state
 
+import com.akkamelo.actor.domain.exception.InvalidTransactionException
 import org.scalatest.flatspec.AnyFlatSpec
 
 class ClientSpec extends AnyFlatSpec {
@@ -9,16 +10,16 @@ class ClientSpec extends AnyFlatSpec {
   }
 
   it should "return new client state when a Credit is added" in {
-    val transaction =  Credit(100, "description")
+    val transaction =  Credit(100, "desc")
     val client = Client.initial
     val resultedClient = client add transaction
-    assert(resultedClient.transactions.head.value==100)
+    assert(resultedClient.transactions.head.value == 100)
   }
 
   it should "Throw an exception if add a Debit that will result a balance lower than Client Limit" in {
     val transaction =  Debit(100001, "description")
     val client = Client.initial.copy(limit=100000)
-    assertThrows[InvalidTransactiontException] {
+    assertThrows[InvalidTransactionException] {
       client add transaction
     }
   }
@@ -27,20 +28,20 @@ class ClientSpec extends AnyFlatSpec {
     val creditTransaction = Credit(100,"description")
     val debitTransaction = Debit(500,"description")
     val clientState = Client.initial.copy(id = 1, limit =100000)
-    val resultClientState = clientState add creditTransaction
-      add debitTransaction
-      add creditTransaction
-      add creditTransaction
-      add creditTransaction
-      add creditTransaction
-      add debitTransaction
-      add debitTransaction
-      add creditTransaction
-      add creditTransaction
-      add creditTransaction
-      add creditTransaction
+    val resultClientState = (clientState add creditTransaction)
+      .add (debitTransaction)
+      .add(creditTransaction)
+      .add (creditTransaction)
+      .add (creditTransaction)
+      .add (creditTransaction)
+      .add (debitTransaction)
+      .add (debitTransaction)
+      .add (creditTransaction)
+      .add (creditTransaction)
+      .add (creditTransaction)
+      .add (creditTransaction)
     val statement = resultClientState.getStatement
-    assert(statement.balance == -600)
-    assert(statement.transactions.size == 10)
+    assert(statement.balanceInformation.balance == -600)
+    assert(statement.lastTransactions.size == 10)
   }
 }
